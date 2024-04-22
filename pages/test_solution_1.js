@@ -30,7 +30,6 @@ function test_solution() {
   console.log("lastInteractionTime", lastInteractionTime);
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      // if (Date.now() - lastInteractionTime >= 5000) {
       if (lastInteractionTime >= 5000) {
         setDataTemporary((prevData) => {
           const newData = prevData.filter((item) => {
