@@ -30,7 +30,7 @@ function test_solution() {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      if (lastInteractionTime >= 5000) {
+      if (lastInteractionTime >= 4000) {
         // setDataTemporary((prevData) => {
         //   const newData = prevData.filter((item , index) => {
         //     setDataTest((prevData) => [...prevData, item[index]]);
@@ -41,12 +41,12 @@ function test_solution() {
         // });
         setDataTemporary((prevData) => {
           const newData = prevData.filter((item, index) => item);
-        
+
           let currentIndex = 0;
           const intervalId = setInterval(() => {
             if (currentIndex < newData.length) {
               const itemToSend = newData[currentIndex];
-        
+
               setDataTest((prevData) => [...prevData, itemToSend]);
               setDataTemporary((prevData) => prevData.filter((item) => item !== itemToSend));
               currentIndex++;
@@ -54,12 +54,11 @@ function test_solution() {
               clearInterval(intervalId);
             }
           }, 1000);
-        
+
           return newData;
         });
-
       }
-    }, 5000);
+    }, 4000);
 
     return () => clearTimeout(timeoutId);
   }, [lastInteractionTime]);
